@@ -1,3 +1,5 @@
+console.log('ajax requests');
+
 import $ from 'jquery';
 
 $.ajaxSetup({
