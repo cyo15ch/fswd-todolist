@@ -1,4 +1,8 @@
-$(".home.index").ready(function(){
+import $ from 'jquery';
+
+console.log("running home.js.erb")
+
+$(document).ready(function(){
 
   //------------------- To do list ---------------------
   var taskInput = $('#task-input');
