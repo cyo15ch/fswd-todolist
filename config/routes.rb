@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
 
-  get    'tasks'                    => 'tasks#index'
-  post   'tasks'                    => 'tasks#create'
-  get    'tasks/:id'                => 'tasks#show'
-  put    'tasks/:id'                => 'tasks#update'
-  put    'tasks/:id/mark_complete'  => 'tasks#mark_complete'
-  put    'tasks/:id/mark_active'    => 'tasks#mark_active'
-  delete 'tasks/:id'                => 'tasks#destroy'
+  get    '/api/tasks'                    => 'tasks#index'
+  post   '/api/tasks'                    => 'tasks#create'
+  get    '/api/tasks/:id'                => 'tasks#show'
+  put    '/api/tasks/:id'                => 'tasks#update'
+  put    '/api/tasks/:id/mark_complete'  => 'tasks#mark_complete'
+  put    '/api/tasks/:id/mark_active'    => 'tasks#mark_active'
+  delete '/api/tasks/:id'                => 'tasks#destroy'
 end
