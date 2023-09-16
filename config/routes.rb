@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   put    '/api/tasks/:id/mark_complete'  => 'tasks#mark_complete'
   put    '/api/tasks/:id/mark_active'    => 'tasks#mark_active'
   delete '/api/tasks/:id'                => 'tasks#destroy'
+
+  delete '/api/tasks/:id/remove'         => 'tasks#remove', as: 'remove_task'
 end

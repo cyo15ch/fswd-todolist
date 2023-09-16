@@ -3,6 +3,7 @@ import $ from 'jquery';
 import {
   indexTasks,
   postTask,
+  deleteOneTask, markTaskAsComplete, markTaskAsActive,
 } from "./requests.js";
 
 $(document).ready(function () {

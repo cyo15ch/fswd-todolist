@@ -8,8 +8,8 @@ $.ajaxSetup({
   }
 });
 
-export var indexTasks = function (successCB, errorCB) {
-  var request = {
+export const indexTasks = function (successCB, errorCB) {
+  const request = {
     type: 'GET',
     url: 'api/tasks?api_key=1',
     success: successCB,
@@ -19,8 +19,8 @@ export var indexTasks = function (successCB, errorCB) {
   $.ajax(request);
 };
 
-export var postTask = function (content, successCB, errorCB) {
-  var request = {
+export const postTask = function (content, successCB, errorCB) {
+  const request = {
     type: 'POST',
     url: 'api/tasks?api_key=1',
     data: {
@@ -28,6 +28,39 @@ export var postTask = function (content, successCB, errorCB) {
         content: content
       }
     },
+    success: successCB,
+    error: errorCB
+  }
+
+  $.ajax(request);
+};
+
+export const deleteOneTask = function (taskId, successCB, errorCB) {
+  const request = {
+    type: 'DELETE',
+    url: `api/tasks/${taskId}?api_key=1`,
+    success: successCB,
+    error: errorCB
+  }
+
+  $.ajax(request);
+};
+
+export const markTaskAsComplete = function (taskId, successCB, errorCB) {
+  const request = {
+    type: 'PUT',
+    url: `api/tasks/${taskId}/complete?api_key=1`,
+    success: successCB,
+    error: errorCB
+  }
+
+  $.ajax(request);
+};
+
+export const markTaskAsActive = function (taskId, successCB, errorCB) {
+  const request = {
+    type: 'PUT',
+    url: `api/tasks/${taskId}/active?api_key=1`,
     success: successCB,
     error: errorCB
   }
