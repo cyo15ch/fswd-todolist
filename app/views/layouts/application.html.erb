@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>FswdTodolist</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -8,9 +9,20 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Add jQuery library -->
+    <script>
+      $(document).ready(function() {
+        $('.circle-button').click(function() {
+          var taskId = $(this).closest('.task').attr('data-id');
+          markTaskAsComplete(taskId);
+        });
+      });
+    </script>
   </head>
 
   <body>
     <%= yield %>
+ 
   </body>
 </html>

@@ -32,19 +32,21 @@ $(document).ready(function () {
     const markCompleteButton = $('<span>').addClass('mark-complete-button').appendTo(taskDiv);
     const taskContent = $('<p>').addClass('task-content').text(task.content).appendTo(taskDiv);
     const removeButton = $('<span>').addClass('remove-button').text('×').appendTo(taskDiv);
+    const circleButton = $('<span>').addClass('circle-button').appendTo(taskDiv); // Add the circle button element
 
     if (task.completed) taskDiv.addClass('completed');
     else taskDiv.removeClass('completed');
 
     markCompleteButton.click(() => toggleTaskCompletion(task, taskDiv));
     removeButton.click(() => removeTask(task.id, taskDiv));
+    circleButton.click(() => markTaskAsComplete(task.id, successCallback, errorCallback)); // Call markTaskAsComplete on click
 
     todoList.append(taskDiv);
   };
 
   const toggleTaskCompletion = (task, taskDiv) => {
     const toggleFunction = task.completed ? markTaskAsActive : markTaskAsComplete;
-    toggleFunction(task.id, response => {
+    toggleFunction(task.id, () => {
       task.completed = !task.completed;
       renderTasks();
     }, error => console.error(error));
