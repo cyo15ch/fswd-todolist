@@ -49,7 +49,7 @@ export const deleteOneTask = function (taskId, successCB, errorCB) {
 export const markTaskAsComplete = function (taskId, successCB, errorCB) {
   const request = {
     type: 'PUT',
-    url: `api/tasks/${taskId}/complete?api_key=1`,
+    url: `api/tasks/${taskId}/mark_complete?api_key=1`,
     success: successCB,
     error: errorCB
   }
@@ -60,7 +60,7 @@ export const markTaskAsComplete = function (taskId, successCB, errorCB) {
 export const markTaskAsActive = function (taskId, successCB, errorCB) {
   const request = {
     type: 'PUT',
-    url: `api/tasks/${taskId}/active?api_key=1`,
+    url: `api/tasks/${taskId}/mark_active?api_key=1`,
     success: successCB,
     error: errorCB
   }
